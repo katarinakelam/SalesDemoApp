@@ -20,6 +20,7 @@ namespace DemoSalesApp.AutoMapper
         {
             this.CreateMap<SaleEvent, SaleEventViewModel>()
                 .ForMember(dest => dest.ArticleSoldPrice, opt => opt.MapFrom(src => src.ArticleSoldPrice));
+            this.CreateMap<Article, ArticleViewModel>();
         }
     }
 }
