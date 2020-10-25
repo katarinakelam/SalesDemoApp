@@ -1,7 +1,7 @@
 # SalesDemoApp
 Demo API, dockerized
 
-This demo application shows possibilities of a dockerized API. The API is connected to the SQL Server Express database, that is also in a container. 
+This demo application shows possibilities of a dockerized API. The API is connected to the SQL Server Express database (which can also be in a container). 
 If you wish to start the API locally and connect to the local database, use the `SalesLocalContext` inside the appsettings.json file.
 
 Otherwise:
