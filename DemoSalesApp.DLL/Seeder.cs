@@ -15,9 +15,9 @@ namespace DemoSalesApp.DLL
     public static class Seeder
     {
         /// <summary>
-        /// Initializes the database seeder with the given service provider.
+        /// Initializes the database seeder with the given context.
         /// </summary>
-        /// <param name="serviceProvider">The service provider.</param>
+        /// <param name="context">The context.</param>
         public static void Initialize(DataContext context)
         {
             // Run migrations
