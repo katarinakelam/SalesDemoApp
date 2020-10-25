@@ -50,7 +50,7 @@ namespace DemoSalesApp
             services.AddSwaggerGen();
 
             services.AddDbContext<DataContext>(options =>
-              options.UseSqlServer(this.Configuration.GetConnectionString("SalesContext")));
+              options.UseSqlServer(this.Configuration.GetConnectionString("SalesLocalContext")));
 
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>
