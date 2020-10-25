@@ -37,15 +37,5 @@ namespace DemoSalesApp.DLL.Repositories.SalesRepository
         /// Returns amount of total revenue for given date.
         /// </returns>
         double GetTotalRevenuePerDay(DateTime? date);
-
-        /// <summary>
-        /// Gets the revenue grouped by articles.
-        /// </summary>
-        /// <param name="startDate">The start date.</param>
-        /// <param name="endDate">The end date.</param>
-        /// <returns>
-        /// Returns calculated revenues grouped by articles.
-        /// </returns>
-        List<Tuple<string, double>> GetRevenueGroupedByArticles(DateTime? startDate, DateTime? endDate);
     }
 }

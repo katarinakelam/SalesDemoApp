@@ -6,7 +6,9 @@ using System.Reflection;
 using System.Threading.Tasks;
 using AutoMapper;
 using DemoSalesApp.DLL;
+using DemoSalesApp.DLL.Repositories.ArticlesRepository;
 using DemoSalesApp.DLL.Repositories.SalesRepository;
+using DemoSalesApp.DLL.Repositories.StatisticsRepository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -74,6 +76,8 @@ namespace DemoSalesApp
 
             services.AddAutoMapper(typeof(Startup));
             services.AddScoped<ISalesRepository, SalesRepository>();
+            services.AddScoped<IArticlesRepository, ArticlesRepository>();
+            services.AddScoped<IStatisticsRepository, StatisticsRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

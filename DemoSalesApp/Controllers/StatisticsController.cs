@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
-using DemoSalesApp.DLL.Repositories.SalesRepository;
+using DemoSalesApp.DLL.Repositories.StatisticsRepository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,18 +18,17 @@ namespace DemoSalesApp.Controllers
     [Produces("application/json")]
     public class StatisticsController : ControllerBase
     {
-        private readonly ISalesRepository salesRepository;
+        private readonly IStatisticsRepository statisticsRepository;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="StatisticsController"/> class.
         /// </summary>
-        /// <param name="salesRepository">The sales repository.</param>
-        /// <exception cref="System.ArgumentNullException">salesRepository</exception>
-        public StatisticsController(ISalesRepository salesRepository)
+        /// <param name="statisticsRepository">The statistics repository.</param>
+        /// <exception cref="System.ArgumentNullException">statisticsRepository</exception>
+        public StatisticsController(IStatisticsRepository statisticsRepository)
         {
-            this.salesRepository = salesRepository ?? throw new ArgumentNullException(nameof(salesRepository));
+            this.statisticsRepository = statisticsRepository ?? throw new ArgumentNullException(nameof(statisticsRepository));
         }
-
 
 #pragma warning disable CS1570 // XML comment has badly formed XML
         /// <summary>
@@ -55,7 +54,7 @@ namespace DemoSalesApp.Controllers
         {
             try
             {
-                var revenueByArticles = this.salesRepository.GetRevenueGroupedByArticles(startDate, endDate);
+                var revenueByArticles = this.statisticsRepository.GetRevenueGroupedByArticles(startDate, endDate);
 
                 return this.StatusCode(StatusCodes.Status200OK, revenueByArticles);
             }

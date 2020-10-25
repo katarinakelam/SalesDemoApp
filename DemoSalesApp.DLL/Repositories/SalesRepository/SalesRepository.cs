@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using DemoSalesApp.Models;
 using DemoSalesApp.ViewModels.DTOs;
@@ -127,39 +128,6 @@ namespace DemoSalesApp.DLL.Repositories.SalesRepository
                     .Where(a => a.TimeStamp.Date == DateTime.Now.Date)
                     .Select(s => s.ArticleSoldPrice)?.Sum() ?? 0;
             }
-        }
-
-        /// <summary>
-        /// Gets the revenue grouped by articles.
-        /// </summary>
-        /// <param name="startDate">The start date.</param>
-        /// <param name="endDate">The end date.</param>
-        /// <returns>
-        /// Returns calculated revenues grouped by articles.
-        /// </returns>
-        public List<Tuple<string, double>> GetRevenueGroupedByArticles(DateTime? startDate, DateTime? endDate)
-        {
-            this.ValidateDataPresenceInTheDatabase();
-
-            var sales = this.context.SaleEvents.AsQueryable();
-            if (startDate.HasValue && endDate.HasValue)
-            {
-                sales = sales.Where(s => s.TimeStamp > startDate.Value && s.TimeStamp < endDate.Value);
-            }
-            else if (startDate.HasValue && !endDate.HasValue)
-            {
-                sales = sales.Where(s => s.TimeStamp > startDate.Value);
-            }
-            else if (!startDate.HasValue && endDate.HasValue)
-            {
-                sales = sales.Where(s => s.TimeStamp < endDate.Value);
-            }
-
-            return sales
-                .GroupBy(a => a.ArticleSoldNumber)
-                .Select(g => new Tuple<string, double>(g.Key, g.Sum(g => g.ArticleSoldPrice)))
-                .OrderByDescending(a => a.Item2)
-                .ToList();
         }
 
         /// <summary>
