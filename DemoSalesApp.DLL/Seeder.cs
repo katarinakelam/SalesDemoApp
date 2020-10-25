@@ -18,11 +18,10 @@ namespace DemoSalesApp.DLL
         /// Initializes the database seeder with the given service provider.
         /// </summary>
         /// <param name="serviceProvider">The service provider.</param>
-        public static void Initialize(IServiceProvider serviceProvider)
+        public static void Initialize(DataContext context)
         {
-            using var context = new DataContext(
-                serviceProvider.GetRequiredService<
-                    DbContextOptions<DataContext>>());
+            // Run migrations
+            context.Database.Migrate();
 
             if (!context.Articles.Any())
             {
