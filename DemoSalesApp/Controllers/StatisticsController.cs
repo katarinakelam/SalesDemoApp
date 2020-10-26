@@ -41,8 +41,9 @@ namespace DemoSalesApp.Controllers
         /// </returns>
         /// <remarks>
         /// Sample request:
-        ///
         ///     GET /statistics/revenue-by-articles?startDate=2020-01-25&endDate=2020-10-15
+        ///     GET /statistics/revenue-by-articles?startDate=2020-01-25
+        ///     GET /statistics/revenue-by-articles
         /// </remarks>
         [HttpGet]
 #pragma warning restore CS1570 // XML comment has badly formed XML

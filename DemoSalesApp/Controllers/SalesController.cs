@@ -86,6 +86,7 @@ namespace DemoSalesApp.Controllers
         /// <remarks>
         /// Sample request:
         ///     GET /sales/articles-sold-per-day?date=2020-10-25
+        ///     GET /sales/articles-sold-per-day
         /// </remarks>
         [HttpGet]
         [Route("articles-sold-per-day")]
@@ -116,6 +117,7 @@ namespace DemoSalesApp.Controllers
         /// <remarks>
         /// Sample request:
         ///     GET /sales/revenue-per-day?date=2020-10-25
+        ///     GET /sales/revenue-per-day
         /// </remarks>
         [HttpGet]
         [Route("revenue-per-day")]
